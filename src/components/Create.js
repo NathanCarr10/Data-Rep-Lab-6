@@ -19,6 +19,7 @@ const Create = () => {
         const movie = {title, movieYear, moviePoster};
         console.log(movie);
 
+        //posts data from server.js file
         axios.post('http://localhost:4000/api/movies', movie)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err.data));
