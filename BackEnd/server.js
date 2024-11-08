@@ -37,7 +37,7 @@ app.get('/api/movies', (req, res) => {
               "Poster": "https://m.media-amazon.com/images/M/MV5BNDQ4YzFmNzktMmM5ZC00MDZjLTk1OTktNDE2ODE4YjM2MjJjXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
             }
     ]
-    res.json({movies})
+    res.status(200).json({movies})
 });
 
 app.post('/api/movies', (req,res) =>{
