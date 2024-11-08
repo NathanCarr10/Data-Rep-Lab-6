@@ -12,6 +12,10 @@ app.use(function(req, res, next) {
     next();
   });
 
+    const bodyParser = require('body-parser');
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
+
 app.get('/api/movies', (req, res) => {
     const movies = [
         
@@ -41,6 +45,7 @@ app.get('/api/movies', (req, res) => {
 });
 
 app.post('/api/movies', (req,res) =>{
+    console.log(req.body.title);
     res.send('Movie Added');
 
 })
