@@ -14,13 +14,13 @@ function MovieItem(props) {
     <div>
       <Card>
         {/* Displaying the movie's title in the Card header */}
-        <Card.Header>{props.mymovie.Title}</Card.Header>
+        <Card.Header>{props.mymovie.title}</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
             {/* Displaying the movie poster image */}
-            <img src={props.mymovie.Poster} alt={props.mymovie.Title} />
+            <img src={props.mymovie.moviePoster} alt={props.mymovie.title} />
             {/* Displaying the movie's release year in the footer */}
-            <footer>{props.mymovie.Year}</footer>
+            <footer>{props.mymovie.movieYear}</footer>
           </blockquote>
         </Card.Body>
       </Card>
