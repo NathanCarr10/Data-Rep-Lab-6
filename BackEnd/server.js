@@ -26,25 +26,25 @@ mongoose.connect('mongodb+srv://admin:admin@cluster10.paimy.mongodb.net/DB14'); 
 //Variable to add movue data to Mongoose Database
 const movieSchema = new mongoose.Schema({
   title: String, 
-  year: String,
-  poster: String,
+  movieYear: String,
+  moviePoster: String,
 });
 
 const movieModel = new mongoose.model('myMovies', movieSchema);
 
 //importing movie data database file
 app.get('/api/movies', async (req, res) => {
-  const movies = await movieModel.find({});
+  const movies = await movieModel.find({}); /// adding data from create page on local host 3000
   res.status(200).json({movies});
 });
 
 //Added a POST method to the Express server that logs the title, year, and poster URL of the movie object passed from the React app
 app.post('/api/movies',async (req, res) => {
   console.log(req.body.title);
-  const {title,year,poster} = req.body;
+  const {title, movieYear , moviePoster} = req.body;
 
   //saving new Movie Data to Database
-  const newMovie = new movieModel({title,year,poster});
+  const newMovie = new movieModel({title,movieYear,moviePoster});
   await newMovie.save();//The await operator in JavaScript is used within an async function to pause the execution until a Promise is settled, which means it has been either fulfilled or rejected.
 
   res.status(201).json({"message": "Movie Added!", Movie:newMovie});
