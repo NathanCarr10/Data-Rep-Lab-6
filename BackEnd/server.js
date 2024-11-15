@@ -38,6 +38,13 @@ app.get('/api/movies', async (req, res) => {
   res.status(200).json({movies});
 });
 
+//Finding Movie's by ID api/movies/******/
+app.get('/api/movies/:id', async(req,res)=>{
+  const movies = await movieModel.findById(req.params.id);
+  res.json(movies);
+})
+
+
 //Added a POST method to the Express server that logs the title, year, and poster URL of the movie object passed from the React app
 app.post('/api/movies',async (req, res) => {
   console.log(req.body.title);
